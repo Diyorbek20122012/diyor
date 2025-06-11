@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Avtomobillar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f2f2f2;
+    }
+
+    nav {
+      background-color: #333;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div>🚗 AvtoSayt</div>
+    <div>
+      <a href="#" onclick="showSection('home')">Bosh sahifa</a>
+      <a href="#" onclick="showSection('about')">About</a>
+    </div>
+  </nav>
+
+  <!-- Bosh Sahifa -->
+  <section id="home" class="container">
+    <div class="card">
+      <img src="https://avatars.mds.yandex.net/get-mpic/1614201/2a0000018b4386d4ac0d9e7beaba90f8ce23/orig" alt="BMW" />
+      <div class="card-content">
+        <h3>BMW M5</h3>
+        <p>Tezlik va komfortning uyg‘unligi.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://i.pinimg.com/736x/31/f1/22/31f122c622bab5cd1e9105283f24f588.jpg" alt="Mercedes" />
+      <div class="card-content">
+        <h3>Mercedes-Benz C-Class</h3>
+        <p>Zamonaviylik va sifat.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://i.ytimg.com/vi/jyx2Ren21pY/maxresdefault.jpg" alt="Audi" />
+      <div class="card-content">
+        <h3>Audi A6</h3>
+        <p>Progress texnologiyada.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://avatars.mds.yandex.net/get-mpic/5349375/img_id4369704153394335618.jpeg/9" alt="Toyota" />
+      <div class="card-content">
+        <h3>Toyota Camry</h3>
+        <p>Isbotlangan ishonchlilik.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://avatars.mds.yandex.net/i?id=91f678292d69cc2a9e8d1304d5811df9aeaa3b1e-13277686-images-thumbs&n=13" alt="Tesla" />
+      <div class="card-content">
+        <h3>Tesla Model 3</h3>
+        <p>Elektr quvvati va kelajak.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About bo‘limi -->
+  <section id="about" class="container hidden">
+    <div class="card">
+      <img src="https://avatars.mds.yandex.net/i?id=6a568e7f8a960b38d37efb0f3b7d9c964d7bbd9f-5287379-images-thumbs&n=13" alt="Lamborghini" />
+      <div class="card-content">
+        <h3>Lamborghini Aventador</h3>
+        <p>Yuksak tezlik va dizayn.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://i.ytimg.com/vi/4J0pk8zFePM/maxresdefault.jpg" alt="Ferrari" />
+      <div class="card-content">
+        <h3>Ferrari 488</h3>
+        <p>Sport avtomobilining belgisi.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function showSection(sectionId) {
+      document.getElementById("home").classList.add("hidden");
+      document.getElementById("about").classList.add("hidden");
+      document.getElementById(sectionId).classList.remove("hidden");
+    }
+  </script>
+
+</body>
+</html>
