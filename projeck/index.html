@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ro'yxatdan o'tish va Kirish</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #3498db, #e74c3c);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      width: 370px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .toggle-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .toggle-buttons button {
+      width: 48%;
+      background-color: #2980b9;
+    }
+
+    .toggle-buttons button.active {
+      background-color: #c0392b;
+    }
+
+    .form-section {
+      display: none;
+    }
+
+    .form-section.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="toggle-buttons">
+      <button id="registerBtn" class="active" onclick="showForm('register')">Ro'yxatdan o'tish</button>
+      <button id="loginBtn" onclick="showForm('login')">Kirish</button>
+    </div>
+
+    <!-- Ro'yxatdan o'tish formasi -->
+    <div id="registerForm" class="form-section active">
+      <h2>Ro'yxatdan o'tish</h2>
+      <form action="/register" method="POST">
+        <label for="name">Ismingiz:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="surname">Familiyangiz:</label>
+        <input type="text" id="surname" name="surname" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Parol:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="address">Turar joyingiz:</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="age">Yoshingiz:</label>
+        <input type="number" id="age" name="age" min="1" max="120" required>
+
+        <label for="phone">Telefon raqamingiz:</label>
+        <input type="tel" id="phone" name="phone" placeholder="+998901234567" required>
+
+        <button type="submit">Ro'yxatdan o'tish</button>
+      </form>
+    </div>
+
+    <!-- Kirish formasi -->
+    <div id="loginForm" class="form-section">
+      <h2>Kirish</h2>
+      <form action="/login" method="POST">
+        <label for="login-email">Email:</label>
+        <input type="email" id="login-email" name="email" required>
+
+        <label for="login-password">Parol:</label>
+        <input type="password" id="login-password" name="password" required>
+
+        <button type="submit">Kirish</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function showForm(formType) {
+      const registerBtn = document.getElementById('registerBtn');
+      const loginBtn = document.getElementById('loginBtn');
+      const registerForm = document.getElementById('registerForm');
+      const loginForm = document.getElementById('loginForm');
+
+      if (formType === 'register') {
+        registerForm.classList.add('active');
+        loginForm.classList.remove('active');
+        registerBtn.classList.add('active');
+        loginBtn.classList.remove('active');
+      } else {
+        registerForm.classList.remove('active');
+        loginForm.classList.add('active');
+        registerBtn.classList.remove('active');
+        loginBtn.classList.add('active');
+      }
+    }
+  </script>
+
+</body>
+</html>
